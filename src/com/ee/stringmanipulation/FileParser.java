@@ -40,14 +40,18 @@ public class FileParser {
     public void setFile(File file) throws FileNotFoundException {
         assert (file != null) : "File couldn't be set";
         if (file.exists()) {
+            if (file.length() <= 0) {
+                throw new IllegalArgumentException("File is empty please provide a file with some data..");
+            }
+            if(file.isDirectory()){
+                throw new FileNotFoundException("Please enter a valid file name not a directory");
+            }
             this.file = file;
-        } else if (file.isDirectory())
-            throw new FileNotFoundException("Please enter a valid file name not a directory");
-        else if (file.length() <= 0) {
-            throw new IllegalArgumentException("File is empty please provide a file with some data..");
-        } else
+            readAndStoreData(new Scanner(file));
+        }
+        else
             throw new FileNotFoundException("Please enter a valid file name....");
-        readAndStoreData(new Scanner(file));
+
     }
 
 

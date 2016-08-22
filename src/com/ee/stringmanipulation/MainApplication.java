@@ -16,12 +16,7 @@ public class MainApplication {
 
     public static void main(String[] argv) {
         try {
-//            FileParser fileParser = new FileParser(getFile());
-//            fileParser.setThreshold(7);
-//            fileParser.printReport();
-//            FileParser fileParser1 = new FileParser(getFile(), getThresholdValue());
-//            fileParser1.printReport();
-            FileParser fileParser2 = new FileParser(new File("input.txt"), 5);
+            FileParser fileParser2 = new FileParser(getFile(), getThresholdValue());
             fileParser2.printReport();
         } catch (FileNotFoundException e) {
             System.err.println(e.getMessage());
@@ -44,6 +39,14 @@ public class MainApplication {
             System.out.print("Enter the file name : ");
             file = new File(scanner.next());
             if (file.exists()) {
+                if (file.length() <= 0) {
+                    System.out.println("File is empty please provide a file with some data..");
+                    continue;
+                }
+                if(file.isDirectory()){
+                    System.out.println("Please enter a valid file name not a directory");
+                    continue;
+                }
                 break;
             } else {
                 System.out.print("\nfile does not exist , please enter a valid name: ");
