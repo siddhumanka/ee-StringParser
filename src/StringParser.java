@@ -47,7 +47,7 @@ public class StringParser {
         Map<String,Integer> map = new HashMap<>();
         String str = null;
         while(scanner.hasNext()){
-            str = scanner.next().replace('.', '\u0000').replace(',', '\u0000').replace('"', '\u0000').toLowerCase();
+            str = scanner.next().replace('.', '\u0000').replace(',', '\u0000').replace('"', '\u0000').trim().toLowerCase();
             if(map.containsKey(str))
                 map.put(str, map.get(str)+1);
             else
