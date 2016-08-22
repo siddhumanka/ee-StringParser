@@ -1,3 +1,5 @@
+package com.ee.stringmanipulation;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -9,14 +11,6 @@ import java.util.Set;
 
 
 public class StringParser {
-    public static void main(String [] argv) throws FileNotFoundException{
-        StringParser stringParser = new StringParser();
-        Scanner scanner  = stringParser.createScanner(new File("input.txt"));
-        Map map = stringParser.readAndStoreData(scanner);
-        //stringParser.printData(map);
-        map = stringParser.findKeysGreaterThanThreshold(map, 7);
-        stringParser.printData(map);
-    }
 
     public void printData(Map map) {
         Set<Entry<String,Integer>> set=map.entrySet();
@@ -56,8 +50,12 @@ public class StringParser {
         return map;
     }
 
-    private Scanner createScanner(File source) throws FileNotFoundException{
-        Scanner scanner = new Scanner(source);
-        return scanner;
+
+    public Map getData(Scanner scanner){
+        return readAndStoreData(scanner);
+    }
+
+    public Map getWordsGreaterThanThreshold(Map map, int threshold){
+        return findKeysGreaterThanThreshold(map,threshold);
     }
 }
