@@ -12,9 +12,8 @@ import java.util.Set;
  */
 public class MainApplication {
     public static void main(String [] argv) throws FileNotFoundException {
-        StringParser stringParser = new StringParser();
-        Map map = stringParser.getData(new Scanner(new File("input.txt")));
-        map = stringParser.getWordsGreaterThanThreshold(map, 7);
-        stringParser. printData(map);
+        StringParser stringParser = new StringParser(new File("input.txt"));
+        Map map = stringParser.readDataFromFile();
+        stringParser. printData(stringParser.getWordsGreaterThanThreshold(map, 7));
     }
 }

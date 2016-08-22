@@ -12,6 +12,12 @@ import java.util.Set;
 
 public class StringParser {
 
+    private File file;
+
+    public StringParser(File file) {
+        this.file = file;
+    }
+
     public void printData(Map map) {
         Set<Entry<String,Integer>> set=map.entrySet();
         Iterator<Entry<String,Integer>> iterator=set.iterator();
@@ -50,9 +56,8 @@ public class StringParser {
         return map;
     }
 
-
-    public Map getData(Scanner scanner){
-        return readAndStoreData(scanner);
+    public Map readDataFromFile() throws FileNotFoundException {
+        return readAndStoreData(new Scanner(file));
     }
 
     public Map getWordsGreaterThanThreshold(Map map, int threshold){
