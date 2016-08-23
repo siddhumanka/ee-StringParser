@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class FileParser {
-    private final long MIN_LENGTH_OF_FILE =0 ;
+    private final long MIN_LENGTH_OF_FILE = 0 ;
     private final int MIN_THRESHOLD_VALUE = 1;
     private File inputFile;
     private Map<String, Integer> map;
@@ -76,7 +76,7 @@ public class FileParser {
     }
 
     private boolean checkForFileContent(File file) {
-        if(file.length()<MIN_LENGTH_OF_FILE){
+        if(file.length()<=MIN_LENGTH_OF_FILE){
             return false;
         }
         return true;
