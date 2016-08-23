@@ -17,7 +17,6 @@ public class FileParser {
     private Map<String, Integer> map;
     private int threshold;
 
-
     public FileParser(File file, int threshold) throws FileNotFoundException, IllegalArgumentException {
         map = new HashMap<>();
         setFile(file);
@@ -91,7 +90,6 @@ public class FileParser {
         return true;
     }
 
-
     private Map populateMap() throws FileNotFoundException {
         String word = null;
         Map<String, Integer> localMap = new HashMap<>();
@@ -117,15 +115,16 @@ public class FileParser {
         Set<Entry<String, Integer>> set = map.entrySet();
         Iterator<Entry<String, Integer>> iterator = set.iterator();
         System.out.println();
+        boolean flag = false;
         while (iterator.hasNext()) {
             Entry<String, Integer> entry = iterator.next();
             if (entry.getValue() >= threshold) {
+                flag = true;
                 System.out.println(entry.getKey() + " : " + entry.getValue());
             }
         }
-        if (set.isEmpty()) {
+        if (!flag) {
             throw new NullPointerException("No words to show...");
         }
     }
-
 }
