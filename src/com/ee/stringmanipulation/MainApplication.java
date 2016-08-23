@@ -17,7 +17,7 @@ public class MainApplication {
     public static void main(String[] argv) {
         try {
             FileParser fileParser2 = new FileParser(getFile(), getThresholdValue());
-            fileParser2.printReport();
+            fileParser2.printData();
         } catch (FileNotFoundException e) {
             System.err.println(e.getMessage());
         } catch (NullPointerException e) {

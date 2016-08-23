@@ -48,11 +48,11 @@ public class FileParserTest {
         FileParser fileParser = new FileParser(new File("input.txt"),3);
     }
 
-    @Test
-    public void printReport() throws Exception {
-        FileParser fileParser = new FileParser(new File("input.txt"),3);
-
-    }
+//    @Test
+//    public void printReport() throws Exception {
+//        FileParser fileParser = new FileParser(new File("input.txt"),3);
+//
+//    }
 
     @Before
     public void setUp() throws Exception {
